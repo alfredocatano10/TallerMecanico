@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+	<br>
+	<center><h1>Aceites</h1><hr></center>
+
+	<h3>Listado de aceites existentes:</h3>
+
+	<hr>
+
+	<form>
+		
+		<div class="row">
+			
+				{% for aceites in docs_list %}
+				<div class=col-md-4>
+                    <br>
+
+					        <strong><p>{{ aceites.nombre }}</p></strong><hr>
+
+					        <center><img src="{{ aceites.imagen.url }}" height="200" width="200"></center><br>
+
+					        <strong>Marca: </strong><p>{{ aceites.marca }}</p>
+
+					        <strong>Modelo: </strong><p>{{ aceites.modelo }}</p>
+
+					        <strong>Precio: </strong><p>{{ aceites.precio }}</p>
+
+					        <strong>Fecha: </strong><p>{{ aceites.fecha }}</p>
+
+							{% if perms.carros.change_aceites %}
+
+					        <p><a href="{% url 'modificarAce' aceites.id  %}">Modificar</a></p>
+
+					        {% endif %}
+
+					        {% if perms.carros.delete_aceites %}
+
+					        <p><a href="{% url 'eliminarAce' aceites.id  %}">Eliminar</a></p>
+					        
+					        {% endif %}
+
+		                    <br>   
+
+				</div>
+	    		{% endfor %}
+
+		</div><br><br>
+
+		{% if perms.carros.add_aceites %}
+
+		<p><a href="{% url 'agregarAce' %}">Agregar</a></p>
+
+		{% endif %}
+
+	</form>
+	<br><br><br>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+	<br>
+	<center><h1>Acerca de esta refaccionaria</h1><hr></center>
+
+	<br><h3>Nuestra compania</h3>
+
+	<hr>
+	<div class="row">
+
+
+		<p>Esta compañia brindara servicio a nuestros clientes en linea
+				que necesiten atencion en su auto. en nuestra tienda encontraran las mejores opciones para su auto, siempre teniendo en cuenta la calidad y el precio para nuestros clientes.
+		</p>
+
+	</div>
+
+	<br><hr><h3>Mandanos una sugerencia o comentario</h3><hr><br>
+
+	<div class="row">
+		<form action = "mailto: ejemplo@hotmail.com" method="post" enctype="text/plain"> 
+		
+		<div class = "row">
+			<div class = "col-md-6">
+				<p style="font: bold 14px arial">Nombre</p>
+				<input type="text" name="nombre" required="" class="form-control"><br>
+			</div>
+
+			<div class = "col-md-6">
+				<p style="font: bold 14px arial">E-Mail</p>
+				<input type="text" name="email" required="" class="form-control"><br>
+			</div>
+		</div>
+
+		<p style="font: bold 14px arial">Asunto</p>
+		<input type="text" name="Asunto" required="" class="form-control"><br>
+
+		<p style="font: bold 14px arial">Mensaje</p>
+		<textarea name="Comentarios" required="" rows="5" cols="30" class="form-control"></textarea>
+
+		 <br>
+		 <input type="submit" value="Enviar">
+		 <input type="reset" value="Borrar">
+
+		</form>
+	</div><br><br>
+
+
+</div>
+
+{% endblock content %}

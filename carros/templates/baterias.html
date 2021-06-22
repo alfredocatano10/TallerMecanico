@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+	<br>
+	<center><h1>Baterias</h1><hr></center>
+
+	<h3>Listado de baterias existentes:</h3>
+
+	<hr>
+
+	<form>
+		
+		<div class="row">
+			
+				{% for baterias in docs_list %}
+				<div class=col-md-4>
+                    <br>
+
+					        <strong><p>{{ baterias.nombre }}</p></strong><hr>
+
+					        <center><img src="{{ baterias.imagen.url }}" height="200" width="200"></center><br>
+
+					        <strong>Marca: </strong><p>{{ baterias.marca }}</p>
+
+					        <strong>Modelo: </strong><p>{{ baterias.modelo }}</p>
+
+					        <strong>Precio: </strong><p>{{ baterias.precio }}</p>
+
+					        <strong>Fecha: </strong><p>{{ baterias.fecha }}</p>
+
+					        {% if perms.carros.change_baterias %}
+
+					        <p><a href="{% url 'modificarBat' baterias.id  %}">Modificar</a></p>
+
+					        {% endif %}
+
+					        {% if perms.carros.delete_baterias %}
+
+					        <p><a href="{% url 'eliminarBat' baterias.id  %}">Eliminar</a></p>
+					        
+					        {% endif %}
+
+		                    <br>   
+				</div>
+	    		{% endfor %}
+
+		</div><br><br>
+
+		{% if perms.carros.add_baterias %}
+
+		<p><a href="{% url 'agregarBat' %}">Agregar</a></p>
+
+		{% endif %}
+
+	</form>
+	<br><br><br>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="jumbotron p-4">
+    <h1 class="titulo" style="text-align: center;  font-size: 50px;"><strong>Refaccionaria.com</strong></h1>
+    <p class="lead" style="text-align: center;">Bienvenidos a nuestra tienda online</p>
+    <hr>
+
+    <div class="row">
+    	<img src="{% static 'files/banner.png' %}" height="400px"
+    	width="1100px">
+    </div>
+    <br><hr>
+
+    <h2>Las mejores ofertas y los mejores productos solo aqui en refacciones.com</h2>
+
+    <hr><br>
+    <div class="row">
+    	<img src="{% static 'files/banner3.jpg' %}" height="400px"
+    	width="1100px">
+    </div>
+    <hr>
+
+    <br><hr>
+
+    <h2>Las mejores marcas y servicios solo aqui en refacciones.com</h2>
+
+    <hr><br>
+    <div class="row">
+    	<img src="{% static 'files/banner2.png' %}" height="400px"
+    	width="1100px">
+    </div>
+    <hr>
+    <br>
+
+</div>
+
+{% endblock content %}

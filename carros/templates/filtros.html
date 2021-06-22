@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+	<br>
+	<center><h1>Filtros</h1><hr></center>
+
+	<h3>Listado de filtros existentes:</h3>
+
+	<hr>
+
+	<form>
+		
+		<div class="row">
+			
+				{% for filtros in docs_list %}
+				<div class=col-md-4>
+                    <br>
+
+					        <strong><p>{{ filtros.nombre }}</p></strong><hr>
+
+					        <center><img src="{{ filtros.imagen.url }}" height="200" width="200"></center><br>
+
+					        <strong>Marca: </strong><p>{{ filtros.marca }}</p>
+
+					        <strong>Modelo: </strong><p>{{ filtros.modelo }}</p>
+
+					        <strong>Precio: </strong><p>{{ filtros.precio }}</p>
+
+					        <strong>Fecha: </strong><p>{{ filtros.fecha }}</p>
+
+					        {% if perms.carros.change_filtros %}
+
+					        <p><a href="{% url 'modificarFil' filtros.id  %}">Modificar</a></p>
+
+					        {% endif %}
+
+					        {% if perms.carros.delete_filtros %}
+
+					        <p><a href="{% url 'eliminarFil' filtros.id  %}">Eliminar</a></p>
+					        
+					        {% endif %}
+
+		                    <br>   
+				</div>
+	    		{% endfor %}
+
+		</div><br><br>
+
+		{% if perms.carros.add_filtros %}
+
+		<p><a href="{% url 'agregarFil' %}">Agregar</a></p>
+
+		{% endif %}
+
+	</form>
+	<br><br><br>
+
+</div>
+
+{% endblock content %}
