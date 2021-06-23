@@ -2,12 +2,12 @@
 {% block content %}
 
 <div class="p-4">
-	<form  method="POST"> {% csrf_token %}
+	<form class="form-control" method="POST"> {% csrf_token %}
 		<div class="form-group">
 			<h1>Registrate</h1><br>
 	  		{{ form.as_p }}
 	  		<br>
-	  	<button type="submit">Registrarse</button>
+	  	<button type="submit" class="btn btn-primary">Registrarse</button>
 		</div>
 
 	</form>
