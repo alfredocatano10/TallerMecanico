@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views #import this
 
+#Se agregan las rutas por defecto que tiene la aplicación
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/',include('django.contrib.auth.urls')),
@@ -14,5 +15,5 @@ urlpatterns = [
 	path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password/password_reset_complete.html'), name='password_reset_complete'),    
 ]
 
-if settings.DEBUG:
+if settings.DEBUG:   #reconocimiento de archivos en la carpeta MEDIA (se complementa con libreria PILLOW)
 	urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
